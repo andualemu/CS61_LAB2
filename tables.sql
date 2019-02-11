@@ -62,12 +62,13 @@ DROP TABLE IF EXISTS `akelbessa_db`.`Manuscript` ;
 CREATE TABLE IF NOT EXISTS `akelbessa_db`.`Manuscript` (
   `manu_id` INT NOT NULL AUTO_INCREMENT,
   `manu_title` VARCHAR(45) NULL,
-  `manu_date` DATETIME NULL,
+  `manu_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   `manu_pagenb` INT NULL,
   `Editor_editor_id` INT NOT NULL,
   `Icode_Icode_num` INT NOT NULL,
   `Issue_issue_id` INT NULL DEFAULT NULL,
   `manu_status` INT NULL,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`manu_id`),
   INDEX `fk_Manuscript_Editor_idx` (`Editor_editor_id` ASC),
   INDEX `fk_Manuscript_Icode1_idx` (`Icode_Icode_num` ASC),
@@ -135,7 +136,8 @@ DROP TABLE IF EXISTS `akelbessa_db`.`Manuscript_has_Author` ;
 CREATE TABLE IF NOT EXISTS `akelbessa_db`.`Manuscript_has_Author` (
   `Manuscript_manu_id` INT NOT NULL,
   `Author_author_id` INT NOT NULL,
-  PRIMARY KEY (`Author_author_id`, `Manuscript_manu_id`),
+  `order` INT NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`order`, `Author_author_id`, `Manuscript_manu_id`),
   INDEX `fk_Manuscript_has_Author_Author1_idx` (`Author_author_id` ASC),
   INDEX `fk_Manuscript_has_Author_Manuscript1_idx` (`Manuscript_manu_id` ASC),
   CONSTRAINT `fk_Manuscript_has_Author_Manuscript1`
