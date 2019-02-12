@@ -35,3 +35,8 @@ Manuscript_has_Author ON Manuscript.manu_id = Manuscript_has_Author.Manuscript_m
 LEFT JOIN
 Reviewer_assignment ON Manuscript.manu_id = Reviewer_assignment.Manuscript_manu_id
 WHERE Manuscript.manu_status = 2;
+
+DROP VIEW IF EXISTS WhatsLeft;
+CREATE VIEW WhatsLeft AS
+SELECT manu_id, manu_status, updated_at
+FROM Manuscript;
