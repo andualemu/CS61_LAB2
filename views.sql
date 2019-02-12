@@ -25,3 +25,13 @@ LEFT JOIN
 Issue ON Manuscript.Issue_Issue_id = Issue.Issue_id
 WHERE Issue.issue_status = "Published"
 ORDER BY Issue.issue_year, Issue.issue_periodnum, Manuscript.manu_pagenb;
+
+DROP VIEW IF EXISTS ReviewQueue;
+CREATE VIEW ReviewQueue AS
+Select Manuscript.manu_id, Manuscript_has_Author.Author_author_id, Reviewer_assignment.Reviewer_reviewer_id
+FROM Manuscript
+LEFT JOIN
+Manuscript_has_Author ON Manuscript.manu_id = Manuscript_has_Author.Manuscript_manu_id
+LEFT JOIN
+Reviewer_assignment ON Manuscript.manu_id = Reviewer_assignment.Manuscript_manu_id
+WHERE Manuscript.manu_status = 2;

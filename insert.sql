@@ -24,3 +24,14 @@ insert INTO Issue (issue_id, issue_year, issue_periodnum, issue_status, issue_np
 VALUES (55, 2019, 1, 'Pending', 120, '1000-01-01 00:00:00');
 insert INTO Issue (issue_id, issue_year, issue_periodnum, issue_status, issue_npages, issue_date)
 VALUES (56, 2019, 2, 'Pending', 114, '1000-01-01 00:00:00');
+
+/* INSERT INTO REVIEWER_ASSIGNMENT*/
+INSERT INTO Reviewer_assignment (Manuscript_manu_id, Reviewer_reviewer_id, Feedback_feedback_id, assigned_date)
+VALUES(17,200, null, null), (17,206, null, null), (17, 209, null, null), (18, 200, null, null), (18, 203, null, null), (18, 210, null, null), (19,208, null, null), (1, 200, null, null), (1, 201, null, null), (1, 202, null, null), (2, 201, null, null), (2, 204, null, null), (2, 206, null, null), (3, 204, null, null), (3, 205, null, null), (4, 202, null, null);
+
+/* INSERT INTO MANUSCRIPT_HAS_AUTHOR*/
+
+INSERT INTO Manuscript_has_Author(Manuscript_manu_id, Author_author_id)
+VALUES(1, 100), (2, 105), (3, 100), (4, 108), (5, 101), (6, 111), (7, 104), (8, 104), (9, 105), (10, 109), (4, 107);
+INSERT INTO Manuscript_has_Author(Manuscript_manu_id, Author_author_id)
+VALUES(16, 112), (11, 107), (12, 109), (13, 102), (14, 110), (15, 106), (17, 105), (18, 112), (19,113), (20, 115);
