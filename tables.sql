@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `akelbessa_db`.`Reviewer_assignment` (
   `Reviewer_reviewer_id` INT NOT NULL,
   `Feedback_feedback_id` INT NOT NULL,
   `assigned_date` VARCHAR(45) NOT NULL,
-  PRIMARY KEY (`Manuscript_manu_id`, `Reviewer_reviewer_id`, `Feedback_feedback_id`),
+  PRIMARY KEY (`Manuscript_manu_id`, `Reviewer_reviewer_id`),
   INDEX `fk_Manuscript_has_Reviewer_Reviewer1_idx` (`Reviewer_reviewer_id` ASC),
   INDEX `fk_Manuscript_has_Reviewer_Manuscript1_idx` (`Manuscript_manu_id` ASC),
   INDEX `fk_Manuscript_has_Reviewer_Feedback1_idx` (`Feedback_feedback_id` ASC),
