@@ -28,7 +28,9 @@ ORDER BY Issue.issue_year, Issue.issue_periodnum, Manuscript.manu_pagenb;
 
 DROP VIEW IF EXISTS ReviewQueue;
 CREATE VIEW ReviewQueue AS
-Select Manuscript.manu_id, Manuscript_has_Author.Author_author_id, Reviewer_assignment.Reviewer_reviewer_id
+Select Manuscript.manu_id as `Manuscript ID`,
+ Manuscript_has_Author.Author_author_id AS `Primary author`,
+  Reviewer_assignment.Reviewer_reviewer_id AS `Reviewers`
 FROM Manuscript
 LEFT JOIN
 Manuscript_has_Author ON Manuscript.manu_id = Manuscript_has_Author.Manuscript_manu_id
@@ -67,7 +69,9 @@ WHERE Feedback.Manuscript_manu_id = Manuscript.manu_id AND Reviewer_reviewer_id 
 
 DROP VIEW IF EXISTS WhatsLeft;
 CREATE VIEW WhatsLeft AS
-SELECT manu_id, manu_status, updated_at
+SELECT manu_id AS `Manuscript ID`,
+manu_status As `Status`,
+updated_at AS `TimeStamp`
 FROM Manuscript;
 
 DELIMITER $$
@@ -82,17 +86,18 @@ DELIMITER ;
 
 DROP VIEW IF EXISTS ReviewStatus;
 CREATE VIEW ReviewStatus AS
-SELECT Feedback.Manuscript_manu_id AS `Manuscript ID`,
+SELECT Reviewer_assignment.assigned_date AS `Assigned date`,
+Feedback.Manuscript_manu_id AS `Manuscript ID`,
 Manuscript.manu_title AS `Manuscript Title`,
-Reviewer_assignment.assigned_date AS `Assigned date`,
 Feedback_feedback_id AS `Feedback ID`,
 Feedback.feedback_appropr AS `Appropriateness`,
 Feedback.feedback_clarity AS `Clarity`,
-Feedback.feedback_method As `Method`,
+Feedback.feedback_method As `Methodology`,
 Feedback.feedback_exp AS `Experimental results`,
-Feedback.feedback_decision AS `Decision`
+Feedback.feedback_decision AS `Recommendation`
 FROM Reviewer_assignment
 JOIN Feedback
 ON Feedback.feedback_id = Reviewer_assignment.Feedback_feedback_id
 JOIN Manuscript
-WHERE Feedback.Manuscript_manu_id = Manuscript.manu_id AND Reviewer_reviewer_id = viewRevId(2);
+WHERE Feedback.Manuscript_manu_id = Manuscript.manu_id AND Reviewer_reviewer_id = viewRevId(2)
+ORDER BY Feedback.feedback_date;

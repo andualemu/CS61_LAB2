@@ -27,14 +27,14 @@ VALUES (56, 2019, 2, 'Pending', 114, '1000-01-01 00:00:00');
 
 /* INSERT INTO REVIEWER_ASSIGNMENT*/
 INSERT INTO Reviewer_assignment (Manuscript_manu_id, Reviewer_reviewer_id, Feedback_feedback_id, assigned_date)
-VALUES(17,200, null, null), (17,206, null, null), (17, 209, null, null), (18, 200, null, null), (18, 203, null, null), (18, 210, null, null), (19,208, null, null), (1, 200, null, null), (1, 201, null, null), (1, 202, null, null), (2, 201, null, null), (2, 204, null, null), (2, 206, null, null), (3, 204, null, null), (3, 205, null, null), (4, 202, null, null);
+VALUES(17,200, 1), (17,206, 1), (17, 209, 1), (18, 200, 1), (18, 203, 1), (18, 210, 2), (19,208, 3), (1, 200, 1), (1, 201, 2), (1, 202, 3), (2, 201, 2), (2, 204, 1), (2, 206, 1), (3, 204, 2), (3, 205, 2), (4, 202, 3);
 
 /*Manuscript */
-INSERT INTO `Manuscript` (`manu_title`,`manu_date`,`manu_pagenb`,`Editor_editor_id`,`Icode_Icode_num`,`Issue_Issue_id`,`manu_status`) VALUES ("vulputate, lacus. Cras","12/07/1818",3,1,1,NULL,9),("gravida. Praesent eu","09/09/1818",6,1,1,NULL,7),("feugiat placerat velit. Quisque","12/02/1919",7,1,1,NULL,4),("Sed nunc est, mollis","10/13/1818",1,1,1,NULL,1),("Quisque","10/04/1818",10,1,1,NULL,10),("Mauris","04/23/1919",6,1,1,NULL,7),("bibendum sed, est.","12/09/1919",4,1,1,NULL,7),("felis.","02/23/1919",6,1,1,NULL,9),("dolor sit amet, consectetuer","11/27/1818",8,1,1,NULL,1),("eget lacus.","08/09/1919",1,1,1,NULL,10);
-INSERT INTO `Manuscript` (`manu_title`,`manu_date`,`manu_pagenb`,`Editor_editor_id`,`Icode_Icode_num`,`Issue_Issue_id`,`manu_status`)
-VALUES('ahdioadjal', "12/07/1818", 13,1, 3, 52, 10), ('barakljop',"12/07/1818", 20,1, 3, 52, 10), ('shiaduajsda', "12/07/1818", 25,1, 3, 51, 10),('oindoada', "01/12/1990", 40,1, 3, 50, 10), ('niajkdnlad', "12/07/1818",5,1,3,54,10), ('ewpmklm', "01/12/1990", 13,1, 3, 56, 10);
-INSERT INTO `Manuscript` (`manu_title`,`manu_date`,`manu_pagenb`,`Editor_editor_id`,`Icode_Icode_num`,`Issue_Issue_id`,`manu_status`)
-Values("hello", "01/12/1990", 14, 1,3, 52, 2), ("jdoakda", "01/12/1990", 50, 1, 3, 56, 2), ("dioadnjao", "01/12/1990", 8,1, 3, 53, 3), ("iojdioad", "01/12/1990", 55, 1, 3, 55, 2);
+INSERT INTO `Manuscript` (`manu_title`,`manu_pagenb`,`Editor_editor_id`,`Icode_Icode_num`,`Issue_Issue_id`,`manu_status`) VALUES ("vulputate, lacus. Cras",3,1,1,51,9),("gravida. Praesent eu",6,1,1,50,7),("feugiat placerat velit. Quisque",7,1,1,51,4),("Sed nunc est, mollis",1,1,1,53,1),("Quisque",10,1,1,54,10),("Mauris",6,1,1,52,7),("bibendum sed, est.",4,1,1,5,7),("felis.",6,1,1,52,9),("dolor sit amet, consectetuer",8,1,1,55,1),("eget lacus.",1,1,1,51,10);
+INSERT INTO `Manuscript` (`manu_title`,`manu_pagenb`,`Editor_editor_id`,`Icode_Icode_num`,`Issue_Issue_id`,`manu_status`)
+VALUES('ahdioadjal', 13,1, 3, 52, 10), ('barakljop', 20,1, 3, 52, 10), ('shiaduajsda', 25,1, 3, 51, 10),('oindoada',40,1, 3, 50, 10), ('niajkdnlad',5,1,3,54,10), ('ewpmklm',13,1, 3, 56, 10);
+INSERT INTO `Manuscript` (`manu_title`,`manu_pagenb`,`Editor_editor_id`,`Icode_Icode_num`,`Issue_Issue_id`,`manu_status`)
+Values("hello",14, 1,3, 52, 2), ("jdoakda",50, 1, 3, 56, 2), ("dioadnjao", 8,1, 3, 53, 3), ("iojdioad",55, 1, 3, 55, 2);
 
 /* INSERT INTO MANUSCRIPT_HAS_AUTHOR*/
 INSERT INTO Manuscript_has_Author(Manuscript_manu_id, Author_author_id)
